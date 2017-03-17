@@ -83,7 +83,7 @@ public class FormattingRecords
    * The maximum number of format records.  This is some weird internal
    * Excel constraint
    */
-  private static final int maxFormatRecordsIndex = 0x1b9;
+  private static final int maxFormatRecordsIndex = 440;
 
   /**
    * The minimum number of XF records for a sheet.  The rationalization
@@ -242,7 +242,7 @@ public class FormattingRecords
   public final NumberFormat getNumberFormat(int pos)
   {
     XFRecord xfr = (XFRecord) xfRecords.get(pos);
-    
+
     if (xfr.isNumber())
     {
       return xfr.getNumberFormat();
@@ -461,7 +461,7 @@ public class FormattingRecords
   {
     ArrayList newformats = new ArrayList();
     int numremoved = 0;
-    IndexMapping mapping = new IndexMapping(nextCustomIndexNumber);
+    IndexMapping mapping = new IndexMapping(nextCustomIndexNumber + 1);
 
     // Iterate through the old list
     Iterator i = formatsList.iterator();
